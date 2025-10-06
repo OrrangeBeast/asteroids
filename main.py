@@ -8,6 +8,8 @@ from asteroid import *
 
 from asteroidfield import *
 
+import sys
+
 def main():
     pygame.init()
     updatable = pygame.sprite.Group()
@@ -30,6 +32,10 @@ def main():
                 return
         screen.fill((0, 0, 0))
         updatable.update(dt)
+        for item in asteroids:
+            if item.chk_collision(player) == True:
+                print("Game over!")
+                sys.exit()
         for item in drawable:
             item.draw(screen)
         pygame.display.flip()
