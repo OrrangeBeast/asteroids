@@ -8,6 +8,8 @@ from asteroid import *
 
 from asteroidfield import *
 
+from shot import *
+
 import sys
 
 def main():
@@ -15,9 +17,11 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containers = (shots, updatable, drawable)
     field = AsteroidField()
     clock = pygame.time.Clock()
     dt = 0
